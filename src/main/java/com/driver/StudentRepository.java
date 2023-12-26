@@ -22,6 +22,10 @@ public class StudentRepository {
         this.allStudents.add(name);
     }
 
+    public Student getStudentById(String studentId){
+        return studentDB.get(studentId);
+    }
+
     public Student getStudentByName(String studentName){
         return studentDB.get(studentName);
     }

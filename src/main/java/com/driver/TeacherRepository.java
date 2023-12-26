@@ -1,5 +1,6 @@
 package com.driver;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Repository
 public class TeacherRepository {
+
     HashMap<String,Teacher> teacherDB;
     HashMap<String, ArrayList<String>> teacherVsStudentsDB;
 
@@ -25,7 +27,7 @@ public class TeacherRepository {
     public void addStudentTeacherPair(String student,String teacher){
         ArrayList<String> students = teacherVsStudentsDB.get(teacher);
         students.add(student);
-        teacherVsStudentsDB.put(teacher,students);
+       teacherVsStudentsDB.put(teacher,students);
     }
     public Teacher getTeacherByName(String teacherName){
         return teacherDB.get(teacherName);
@@ -38,6 +40,7 @@ public class TeacherRepository {
     }
 
     public List<String> getStudentsByTeacherName(String teacher){
+
         return teacherVsStudentsDB.get(teacher);
     }
 

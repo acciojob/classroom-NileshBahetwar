@@ -35,9 +35,11 @@ public class StudentController {
     }
 
     @PutMapping("/add-student-teacher-pair")
-    public ResponseEntity<String> addStudentTeacherPair(@RequestParam("Student") String student, @RequestParam("Teacher") String teacher){
+    public ResponseEntity<String> addStudentTeacherPair(@RequestParam String student, @RequestParam String teacher){
         teacherService.addStudentTeacherPair(student,teacher);
         return new ResponseEntity<>("New student-teacher pair added successfully", HttpStatus.CREATED);
+        // changes made here
+        // rollback done here
     }
 
     @GetMapping("/get-student-by-name/{name}")
